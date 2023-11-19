@@ -22,7 +22,7 @@ func TestOneTimeAuth(t *testing.T) {
 		}
 
 		m_i, err := alice.NextPassword()
-		assert.Error(t, err, "alice should an error if somebody requires next round")
+		assert.Error(t, err, "alice should return an error if somebody requires next round")
 		assert.Nil(t, m_i)
 
 		assert.Error(t, bob.Verify(randHex()), "bob should return an error if round offset exceeds")
