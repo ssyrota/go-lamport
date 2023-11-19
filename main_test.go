@@ -15,7 +15,7 @@ func Test(t *testing.T) {
 
 		assert.NoError(t, err, "on first time usage there should be no errors")
 		assert.Equal(t, 256, len(signature))
-		assert.True(t, OneTimeAuthVerify(message, *signature, auth.PublicKey()))
+		assert.True(t, OneTimeSignVerify(message, *signature, auth.PublicKey()))
 	})
 
 	t.Run("malformed message is not verified", func(t *testing.T) {
