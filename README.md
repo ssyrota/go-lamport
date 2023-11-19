@@ -1,9 +1,10 @@
 # Go Lamport Signture/Authentication
 
 ## Overview
-`go-lamport` is a Go implementation of the Lamport One-Time Signature scheme, a method of digital signature in cryptography. This project provides an efficient and secure way to generate and verify signatures in Go, leveraging the robustness of the Lamport signature algorithm.
+`go-lamport` is a Go implementation of the Lamport One-Time Signature and Password scheme. This project provides an efficient and secure way to generate and verify signatures in Go, leveraging the robustness of the Lamport signature algorithm. Also it provides one time password mechanism with an arbitrary rounds count.
 
 ## Features
+- Use Lamport one time auth scheme.
 - Generate Lamport key pairs (private and public keys).
 - Sign messages using the Lamport one-time signature method.
 - Verify signatures against the corresponding public key.
