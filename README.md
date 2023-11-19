@@ -16,7 +16,26 @@ To use lib go-lamport, run the following command in your Go environment:
 go get github.com/ssyrota/go-lamport
 ```
 
-### Usage
+### Auth Usage
+
+```go
+rounds := 10_000
+alice := NewOneTimeAuthAlice(rounds)
+bob := NewOneTimeAuthBob(rounds, alice.InitialPassword()
+for i := 0; i < rounds; i++ {
+	m_i, err := alice.NextPassword()
+    if err != nil {
+        ...
+    }
+	validationErr := bob.Verify(*m_i)
+    if validationErr != nil {
+        ...
+    }
+}
+
+```
+
+### Signature Usage
 Generating a Key Pair:
 ```go
 import "github.com/ssyrota/go-lamport"
