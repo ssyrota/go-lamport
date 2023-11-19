@@ -1,7 +1,7 @@
-# Go Lamport Authentication
+# Go Lamport Signture/Authentication
 
 ## Overview
-`go-lamport-auth` is a Go implementation of the Lamport One-Time Signature scheme, a method of digital signature in cryptography. This project provides an efficient and secure way to generate and verify signatures in Go, leveraging the robustness of the Lamport signature algorithm.
+`go-lamport` is a Go implementation of the Lamport One-Time Signature scheme, a method of digital signature in cryptography. This project provides an efficient and secure way to generate and verify signatures in Go, leveraging the robustness of the Lamport signature algorithm.
 
 ## Features
 - Generate Lamport key pairs (private and public keys).
@@ -10,16 +10,16 @@
 - Ensures high security by marking keys as disposed after one use.
 
 ## Installation
-To use lib go-lamport-auth, run the following command in your Go environment:
+To use lib go-lamport, run the following command in your Go environment:
 
 ```bash
-go get github.com/ssyrota/go-lamport-auth
+go get github.com/ssyrota/go-lamport
 ```
 
 ### Usage
 Generating a Key Pair:
 ```go
-import "github.com/ssyrota/go-lamport-auth"
+import "github.com/ssyrota/go-lamport"
 
 func main() {
     auth := lamport.NewOneTimeAuth()
@@ -58,7 +58,7 @@ func main() {
 ```
 
 # Contributing
-Contributions to go-lamport-auth are welcome! Please read our contributing guidelines for details on how to submit contributions.
+Contributions to go-lamport are welcome! Please read our contributing guidelines for details on how to submit contributions.
 
 # License
 This project is licensed under the MIT License.
