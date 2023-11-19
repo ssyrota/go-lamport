@@ -1,4 +1,4 @@
-module github.com/ssyrota/go-lamport-auth
+module github.com/ssyrota/go-lamport
 
 go 1.20
 
