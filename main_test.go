@@ -8,7 +8,7 @@ import (
 
 func Test(t *testing.T) {
 	t.Run("signed message can be verified", func(t *testing.T) {
-		auth := NewOneTimeAuth()
+		auth := NewOneTimeSignature()
 		message := MakeMessage()
 
 		signature, err := auth.Sign(MakeMessage())
@@ -19,7 +19,7 @@ func Test(t *testing.T) {
 	})
 
 	t.Run("malformed message is not verified", func(t *testing.T) {
-		auth := NewOneTimeAuth()
+		auth := NewOneTimeSignature()
 		message := MakeMessage()
 
 		signature, err := auth.Sign(message)
@@ -30,6 +30,6 @@ func Test(t *testing.T) {
 		malformed := []byte(message[:])
 		malformed[1] = byte(0)
 		malformed[2] = byte(1)
-		assert.False(t, OneTimeAuthVerify([32]byte(malformed), *signature, auth.PublicKey()))
+		assert.False(t, OneTimeSignVerify([32]byte(malformed), *signature, auth.PublicKey()))
 	})
 }
