@@ -1,7 +1,6 @@
 package lamport
 
 import (
-	"crypto/rand"
 	"crypto/sha256"
 	"errors"
 )
@@ -92,10 +91,4 @@ func makeSignaturePrivateKey() SignatureKey {
 		keys[i][1] = randHex()
 	}
 	return keys
-}
-
-func randHex() [32]byte {
-	bytes := [32]byte{}
-	rand.Read(bytes[:])
-	return bytes
 }
