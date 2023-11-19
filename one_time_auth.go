@@ -12,8 +12,9 @@ type Signature [256][32]byte
 
 func (sign *Signature) Matches(pretender Signature) bool {
 	for i, signPart := range sign {
+		hashed := sha256.Sum256(pretender[i][:])
 		for j, signByte := range signPart {
-			if signByte != pretender[i][j] {
+			if signByte != hashed[j] {
 				return false
 			}
 		}
@@ -59,9 +60,9 @@ func (onetimeAuth *OneTimeAuth) Sign(msg Message) (*Signature, error) {
 	hash := msg.Hash()
 	for i := 0; i < 256; i++ {
 		if hash[i/8]&(1<<(uint(i)%8)) != 0 {
-			sign[i] = onetimeAuth.publicKey[i][1]
+			sign[i] = onetimeAuth.privateKey[i][1]
 		} else {
-			sign[i] = onetimeAuth.publicKey[i][0]
+			sign[i] = onetimeAuth.privateKey[i][0]
 		}
 	}
 	return &sign, nil
